@@ -1,0 +1,2 @@
+"apple" is a fruit just like "orange", "kiwi" and "banana" and
+also "nordic apple"

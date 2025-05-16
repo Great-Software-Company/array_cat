@@ -1,0 +1,349 @@
+@font-face {
+  font-family: Raleway;
+  src: url(../fonts/Raleway-Regular.woff);
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  background-color: #f9eae3;
+  font-family: Raleway !important;
+}
+input {
+  outline: none !important;
+}
+h1,
+h2,
+h3 {
+  font-family: Raleway;
+  line-height: 1.2;
+}
+h1 {
+  font-size: 32px;
+}
+h2 {
+  font-size: 24px;
+}
+button,
+p {
+  font-family: Raleway !important;
+}
+a {
+  font-family: Raleway;
+  text-decoration: none !important;
+  color: #567da2;
+}
+a:hover {
+  opacity: 0.8;
+  transition: opacity ease 300ms;
+}
+.br-12 {
+  border-radius: 12px;
+}
+.overflowx-auto {
+  overflow-x: auto;
+}
+button:disabled {
+  cursor: no-drop;
+}
+.default-btn {
+  padding: 8px 24px;
+  background-color: #fff;
+  border: 0;
+  border-radius: 20px;
+  font-family: Raleway;
+  transition: opacity ease 300ms;
+}
+.default-btn:hover {
+  opacity: 0.7;
+}
+header {
+  width: 100%;
+  z-index: 2;
+  background-color: #f9eae3;
+}
+nav {
+  width: 100%;
+  max-width: 1440px;
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
+}
+main {
+  max-width: 1140px;
+  padding-top: 5px;
+  z-index: 1;
+}
+footer {
+  max-width: 1440px;
+  margin: 0 auto;
+}
+footer > div:first-child {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+::-moz-selection { 
+  color: #fff;
+  background: #8DB9FF;
+  background-image: none;
+  text-fill-color: #fff;
+  -webkit-text-fill-color: #fff;
+}
+::selection {
+  color: #fff;
+  background: #8DB9FF;
+  background-image: none;
+  text-fill-color: #fff;
+  -webkit-text-fill-color: #fff;
+}
+/* nav bar css start */
+nav button.navbar-toggler svg {
+  font-size: 36px;
+}
+.nav-mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  transition: all ease 0.3s;
+  z-index: 100;
+}
+.nav-link {
+  color: #000;
+}
+.nav-link:hover,
+.nav-link.active {
+  color: #567da2;
+}
+/* nav bar css end */
+.output-box-inner {
+  overflow: auto;
+}
+.input-box,
+.output-box {
+  background-color: #e6e6e6;
+  border-radius: 16px;
+}
+textarea {
+  outline: none;
+  font-family: "Comic Code", "DejaVu Sans Mono", "Source Code Pro", "JetBrains Mono", "Dina", "Terminus", "Courier New";
+  line-height: 1.4;
+  border: 0;
+}
+#inputData,
+#outputData {
+  width: 100%;
+  height: 240px;
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 16px;
+}
+#inputData {
+  overflow: auto;
+}
+#outputData {
+  overflow: unset;
+}
+.selectBox {
+  position: relative;
+  padding-right: 30px;
+  cursor: pointer;
+}
+.selectBox__value {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
+}
+.dropdown-toggle::after {
+  border: 0;
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  height: 26px;
+  opacity: 0.7;
+  transform: translateY(-50%) rotate(0deg);
+  transition: all 0.2s ease-in-out;
+  content: url('data:image/svg+xml,%3Csvg xmlns="http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg" width="26" height="26" viewBox="0 0 24 24"%3E%3Cpath fill="black" d="m12 15.4l-6-6L7.4 8l4.6 4.6L16.6 8L18 9.4Z"%2F%3E%3C%2Fsvg%3E');
+}
+.selectBox .dropdown-menu {
+  /* transition: all 0.5s ease-in-out; */
+  opacity: 0;
+  display: block;
+  top: 100%;
+  width: 240px;
+  max-height: 250px;
+  z-index: -1;
+  overflow-y: auto;
+  transform: translateY(-15%);
+  visibility: hidden;
+}
+.selectBox.show {
+  background-color: transparent;
+}
+.dropdown-toggle[aria-expanded="true"]::after {
+  transform: translateY(-50%) rotate(180deg);
+}
+.selectBox.show .dropdown-menu {
+  visibility: visible;
+  opacity: 1;
+  z-index: 1;
+  transform: translateY(0);
+}
+.dropdown-item.active,
+.dropdown-item:focus {
+  background-color: #f2faff;
+  color: #1675e0;
+  font-weight: 700;
+}
+#transformDropdown .dropdown-menu {
+  width: 280px;
+}
+#transformDropdown .dropdown-menu input {
+  width: 60px;
+  font-size: 14px;
+}
+#uploadBtn {
+  position: relative;
+}
+#uploadBtn input {
+  position: absolute;
+  width: 100%;
+  height: 105%;
+  left: 0;
+  top: 0;
+  cursor: pointer;
+  opacity: 0;
+}
+#convertBtn {
+  width: 200px;
+  height: 60px;
+  border-radius: 30px;
+  font-size: 20px;
+}
+.copy-notification {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  width: 100%;
+  max-width: 404px;
+  z-index: 9999;
+}
+.alert-success {
+  border-left: 6px solid #155724;
+  border-radius: 0;
+}
+/* styled checkbox css start */
+input[type="checkbox"] {
+  display: none;
+}
+
+input[type="checkbox"] + label:before {
+  content: "\2714";
+  border: 0.1em solid #645e5e;
+  border-radius: 0.2em;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  padding-left: 0.2em;
+  padding-bottom: 0.3em;
+  margin-right: 0.2em;
+  vertical-align: text-bottom;
+  color: transparent;
+  transition: 0.2s;
+}
+
+input[type="checkbox"] + label:active:before {
+  transform: scale(0);
+}
+
+input[type="checkbox"]:checked + label:before {
+  background-color: #c1b6b3;
+  border-color: #c1b6b3;
+  color: #fff;
+}
+
+/* styled checkbox css end */
+/* dark mode switch css */
+.tumbler-wrapper {
+  width: 50px;
+  min-width: 50px;
+  height: 30px;
+  background-color: black;
+  border: #1d92b2;
+  border-radius: 30px;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 6px;
+  cursor: pointer;
+  display: flex;
+}
+.tumbler-wrapper img {
+  width: 15px;
+  height: 15px;
+}
+.tumbler {
+  position: absolute;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  background-color: #fff;
+  transition: transform 0.5s, background-color 0.5s;
+  will-change: transform;
+}
+@media (max-width: 991px) {
+  header nav h1 {
+    font-size: 20px;
+  }
+  header nav h2 {
+    font-size: 14px;
+  }
+  .dropdown-menu {
+    left: auto;
+    right: 0;
+  }
+}
+
+body.night-mode .tumbler {
+  transform: translateX(calc(100% - 2px));
+}
+body.night-mode .tumbler-wrapper {
+  background-color: #7f726f;
+}
+
+/* dark mode switch css end*/
+
+/* night mode css start */
+body.night-mode,
+body.night-mode header {
+  background-color: #111117;
+  color: #fff;
+}
+body.night-mode nav {
+  border-color: #514c68;
+}
+body.night-mode nav button.navbar-toggler svg,
+body.night-mode .nav-link {
+  color: #fff;
+}
+body.night-mode .input-box,
+body.night-mode .output-box {
+  background-color: #202733;
+}
+body.night-mode #inputData,
+body.night-mode #outputData,
+body.night-mode .output-box-inner {
+  background-color: #353d4b !important;
+  color: #fff;
+}
+body.night-mode .default-btn {
+  background-color: #555b67;
+  color: #fff;
+}
+body.night-mode .selectBox__value:after,
+body.night-mode #transformDropdown .dropdown-toggle::after {
+  content: url('data:image/svg+xml,%3Csvg xmlns="http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg" width="26" height="26" viewBox="0 0 24 24"%3E%3Cpath fill="white" d="m12 15.4l-6-6L7.4 8l4.6 4.6L16.6 8L18 9.4Z"%2F%3E%3C%2Fsvg%3E');
+}
