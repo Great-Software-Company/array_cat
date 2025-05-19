@@ -71,7 +71,7 @@
 
   <div class="input-box p-4">
     <div
-      class="mb-3 d-flex flex-column flex-md-row justify-content-between align-items-center"
+      class="d-flex flex-column flex-md-row justify-content-between align-items-center"
     >
       <div class="d-flex align-items-center mb-3 mb-md-0">
         <p class="my-0 mr-2 font-weight-bold">Input data format:</p>
@@ -101,7 +101,7 @@
       </div>
     </div>
     <textarea
-      class="text-area w-100"
+      class="text-area w-100 mt-3"
       name="inputData"
       id="inputData"
       rows="10"
@@ -113,7 +113,7 @@
   </div>
   <div class="output-box p-4 mb-5">
     <div
-      class="mb-3 d-flex flex-column flex-md-row justify-content-between align-items-center"
+      class="d-flex flex-column flex-md-row justify-content-between align-items-center"
     >
       <div class="d-flex align-items-center mb-3 mb-md-0">
         <p class="my-0 mr-2 font-weight-bold">Output data format:</p>
@@ -161,6 +161,10 @@
               <label class="mb-0" for="lowercase">Convert to lower case</label>
             </div>
             <div class="py-2">
+              <input type="checkbox" id="fixApostrophes" name="fixApostrophes">
+              <label class="mb-0" for="fixApostrophes">Fix apostrophes</label>
+            </div>
+            <div class="py-2">
               <input type="checkbox" id="normalize" name="normalize">
               <label class="mb-0" for="normalize">Remove diacritics</label>
             </div>
@@ -206,7 +210,7 @@
         </button>
       </div>
     </div>
-    <div class="w-100 bg-white br-12 overflowx-auto output-box-inner">
+    <div class="mt-3 w-100 bg-white br-12 overflowx-auto output-box-inner">
           <textarea
             class="text-area"
             name="outputData"
