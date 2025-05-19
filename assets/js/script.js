@@ -67,7 +67,7 @@ $(document).ready(function () {
     }
     reader.readAsText(file);
   });
-  $("#outputData").hide();
+  $(".output-box-inner").hide();
   $("#copyBtn").hide();
 
   let transformClicked = false;
@@ -76,7 +76,7 @@ $(document).ready(function () {
 
   $("#convertBtn").click(function () {
     transformClicked = true;
-    $("#outputData").show();
+    $(".output-box-inner").show();
     $("#copyBtn").show();
     let dataStr = $("#inputData").val();
     if (dataStr.trim().length == 0) {
@@ -291,7 +291,6 @@ function outputDataFunc(data) {
       e = unifyWhitespace(e);  // Applies all transformations
     }
     if ($("#fixApostrophes").is(":checked")) {
-      console.log("f");
       // Only replace apostrophes inside actual content, not inside formatting
       e = e.replace(/'/g, "’");
     }
