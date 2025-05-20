@@ -48,6 +48,7 @@ $(document).ready(function () {
       default:
         inputDataEle.val(exampleArray.toString());
     }
+    $("#convertBtn").click();
   });
 
   $("#uploadfile").change(function (e) {
@@ -125,6 +126,7 @@ $(document).ready(function () {
       }
     }
   });
+
   function delayedTransform() {
     if (transformClicked) {
       clearTimeout(transformTimeout);
@@ -133,7 +135,8 @@ $(document).ready(function () {
       }, 1000);
     }
   }
-  $("#outputDataFormat + .dropdown-menu .dropdown-item").on("click", function() {
+
+  $("#outputDataFormat + .dropdown-menu .dropdown-item").on("click", function () {
     $("#outputDataFormat  + .dropdown-menu .dropdown-item").removeClass("active");
     $(this).addClass("active");
 
@@ -142,7 +145,7 @@ $(document).ready(function () {
     delayedTransform();
   });
 
-  $("#inputDataFormat + .dropdown-menu .dropdown-item").on("click", function() {
+  $("#inputDataFormat + .dropdown-menu .dropdown-item").on("click", function () {
     $("#inputDataFormat + .dropdown-menu .dropdown-item").removeClass("active");
     $(this).addClass("active");
 
@@ -150,7 +153,7 @@ $(document).ready(function () {
 
     delayedTransform();
   });
-  $("#inputDataFormat + .dropdown-menu .dropdown-item").on("click", function() {
+  $("#inputDataFormat + .dropdown-menu .dropdown-item").on("click", function () {
     $("#inputDataFormat + .dropdown-menu .dropdown-item").removeClass("active");
     $(this).addClass("active");
 
@@ -251,13 +254,16 @@ function formatArrayWithWrapping(elements, options) {
 
   return prefix + outputDataStr + suffix;
 }
+
 function unifyWhitespace(str) {
   // 1. First unescape all Unicode sequences and special characters
   str = str.replace(/\\u([\dA-F]{4})/gi,
     (match, grp) => String.fromCharCode(parseInt(grp, 16)))
     .replace(/\\[tnrfv]/g, (match) =>
-      ({ '\\t': '\t', '\\n': '\n', '\\r': '\r',
-        '\\f': '\f', '\\v': '\v' }[match]));
+      ({
+        '\\t': '\t', '\\n': '\n', '\\r': '\r',
+        '\\f': '\f', '\\v': '\v'
+      }[match]));
 
   // 2. Then handle ALL whitespace and control characters in three ways:
   return str
@@ -273,6 +279,7 @@ function unifyWhitespace(str) {
     .replace(/\s{2,}/g, ' ')
     .trim();
 }
+
 function outputDataFunc(data) {
   let outputDataFormat = $("#outputDataFormat").text();
   let outputDataEle = $("#outputData");
@@ -322,8 +329,17 @@ function outputDataFunc(data) {
         suffix: "];"
       });
       break;
-
-    case "pas": // Pascal
+    case "go ": // Go
+      finalOutputDataStr = formatArrayWithWrapping(dataArr, {
+        quote: '"',
+        outputDataWidth,
+        prefix: `arr := [${dataArr.length}]string{`,
+        suffix: "}"
+      });
+      break;
+    case
+    "pas"
+    : // Pascal
       finalOutputDataStr = formatArrayWithWrapping(dataArr, {
         quote: "'",
         outputDataWidth,
@@ -332,7 +348,9 @@ function outputDataFunc(data) {
       });
       break;
 
-    case "del": // Delphi
+    case
+    "del"
+    : // Delphi
       finalOutputDataStr = formatArrayWithWrapping(dataArr, {
         quote: "'",
         outputDataWidth,
@@ -341,7 +359,9 @@ function outputDataFunc(data) {
       });
       break;
 
-    case "php":
+    case
+    "php"
+    :
       finalOutputDataStr = formatArrayWithWrapping(dataArr, {
         quote: '"',
         outputDataWidth,
@@ -350,7 +370,9 @@ function outputDataFunc(data) {
       });
       break;
 
-    case "pyt": // Python
+    case
+    "pyt"
+    : // Python
       finalOutputDataStr = formatArrayWithWrapping(dataArr, {
         quote: '"',
         outputDataWidth,
@@ -359,13 +381,26 @@ function outputDataFunc(data) {
       });
       break;
 
-    case "one": // One item per row
+    case
+    "one"
+    : // One item per row
       finalOutputDataStr = dataArr.join("\n") + "\n";
       break;
 
-    case "sql":
+    case
+    "sql"
+    :
       finalOutputDataStr = dataArr.map(item =>
-        `INSERT IGNORE INTO ${sqlTblName}(${sqlColName}) VALUES("${item}");`
+        `INSERT
+        IGNORE INTO
+        ${sqlTblName}
+        (
+        ${sqlColName}
+        )
+        VALUES
+        (
+        "${item}"
+        );`
       ).join("\n") + "\n";
       break;
   }

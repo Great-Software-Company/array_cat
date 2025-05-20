@@ -7,6 +7,7 @@ document.querySelector(".tumbler-wrapper").onclick = (_) => {
     setCookie("night-mode", "unset", 30);
     document.querySelector("body").classList.remove("night-mode");
   }
+  updateToggleIcon();
 };
 if (getCookie("night-mode")) {
   if (getCookie("night-mode") == "set")
@@ -20,4 +21,16 @@ if (getCookie("night-mode")) {
     document.querySelector("body").classList.add("night-mode");
   }
 }
+updateToggleIcon();
 // darkmode script end
+function updateToggleIcon() {
+  const isNight = document.body.classList.contains("night-mode");
+  const toggleImg = document.querySelector(".mode-toggle-icon");
+  if (!toggleImg) return;
+
+  if (isNight) {
+    toggleImg.src = "./assets/images/toggle_sun.png";
+  } else {
+    toggleImg.src = "./assets/images/toggle_moon.png";
+  }
+}
