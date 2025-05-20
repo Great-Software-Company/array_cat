@@ -117,7 +117,7 @@
             class="selectBox__value dropdown-toggle"
             data-toggle="dropdown"
             id="outputDataFormat">
-            JavaScript array
+              One item per row
           </div>
           <div class="dropdown-menu">
             <a href="javascript:void(0)" class="dropdown-item">Delphi array</a>
