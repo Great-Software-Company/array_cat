@@ -361,3 +361,6 @@ body.night-mode #transformDropdown .dropdown-toggle::after {
 .dropdown-menu a, a:visited{
   color: #212529 !important;
 }
+.navbar{
+max-width: 1140px;
+}
