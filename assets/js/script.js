@@ -301,6 +301,14 @@ function outputDataFunc(data) {
       // Only replace apostrophes inside actual content, not inside formatting
       e = e.replace(/'/g, "’");
     }
+    if ($("#fixQuotes").is(":checked")) {
+      // Replace straight double quotes with curly double quotes
+      e = e.replace(/"([^"]*)"/g, "“$1”");
+    }
+    if ($("#removeTrailing").is(":checked")) {
+      // Remove trailing tabs, commas, semicolons, or pipes at end of each line
+      e = e.split('\n').map(line => line.replace(/[\t,;|]+$/g, '')).join('\n');
+    }
     if ($("#stripWhitespace").is(":checked")) {
       e = e.replace(/\s{2,}/g, ' '); // Replace 2+ spaces with single space
     }

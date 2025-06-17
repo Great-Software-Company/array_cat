@@ -52,15 +52,16 @@
 </header>
 <main class="mx-auto mt-0 px-3 max-w-640">
   <div>
-    <h1>Convert any strings to array with ArrayCat</h1>
+    <h3 style="font-size: 34px">Convert any strings to array with ArrayCat</h3>
     <p class="mt-sm-5 pb-4">
-      ArrayCat is a free tool for converting a list of data or any string into an array. For example, you can convert CSV file into
-      PHP array. Or, into a JavaScript array. Or even into an SQL insertion, which is technically not an array,
+      ArrayCat is a free tool for converting a list of data or any string into an array. For example, you can convert a CSV file into
+      a PHP array. Or, into a JavaScript array. Or even into a SQL insertion, which is technically not an array,
       but cats get confused sometimes.</p>
 
       <p>Not only string to array conversions, ArrayCat also supports various transformations,
-      such as sort lists, delete duplicates from lists, remove diacritics, convert data to lower case,
-      and much more. You can find the full list of supported transformations below.
+      such as: sort lists, delete duplicates from lists, remove diacritics, convert data to lower case,
+      base64 encode elements, convert to HTML entities, and much more.
+      You can find the full list of supported transformations below.
     </p>
   </div>
 
@@ -89,10 +90,10 @@
       </div>
       <div class="d-flex">
         <button class="default-btn mr-2" id="exampleBtn">Example</button>
-        <button class="default-btn" id="uploadBtn">
+        <label class="default-btn" id="uploadBtn">
           <input type="file" id="uploadfile">
           Load file
-        </button>
+        </label>
       </div>
     </div>
     <textarea
@@ -161,6 +162,11 @@
               <label class="mb-0" for="fixApostrophes">Fix apostrophes</label>
             </div>
             <div class="py-2">
+              <input type="checkbox" id="fixQuotes" name="fixQuotes">
+              <label class="mb-0" for="fixQuotes">Fix quotation marks</label>
+            </div>
+
+            <div class="py-2">
               <input type="checkbox" id="normalize" name="normalize">
               <label class="mb-0" for="normalize">Remove diacritics</label>
             </div>
@@ -171,6 +177,10 @@
             <div class="py-2">
               <input type="checkbox" id="removeEmptyElement" name="removeEmptyElement" checked>
               <label class="mb-0" for="removeEmptyElement">Remove empty elements</label>
+            </div>
+            <div class="py-2">
+              <input type="checkbox" id="removeTrailing" name="removeTrailing">
+              <label class="mb-0" for="removeTrailing">Remove trailing separators</label>
             </div>
             <div class="py-2">
               <input type="checkbox" id="sort" name="sort">

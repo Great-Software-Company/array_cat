@@ -64,6 +64,9 @@ button:disabled {
   font-family: FiraCode;
   transition: opacity ease 300ms;
 }
+#uploadBtn {
+  top: 7px;
+}
 .default-btn:hover {
   opacity: 0.7;
 }
